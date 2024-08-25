@@ -24,8 +24,8 @@ export function App() {
 
   return (
     <div>
-      <h1>Hello Dokyung! 🛹</h1>
-      <small>This is a React app 헤헤</small>
+      <h1>도경 안녕! 🛹</h1>
+      <small>This is a React app 헤헤 여기 만들자</small>
       <p>Seconds elapsed: {(milliseconds / 1000).toFixed(2)}</p>
       <button onClick={startTimer} disabled={isRunning}>
         Start
