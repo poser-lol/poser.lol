@@ -1,5 +1,6 @@
 # poser.lol
 
+[![Check](https://github.com/poser-lol/poser.lol/actions/workflows/check.yml/badge.svg)](https://github.com/poser-lol/poser.lol/actions/workflows/check.yml)
 [![Build](https://github.com/poser-lol/poser.lol/actions/workflows/build.yml/badge.svg)](https://github.com/poser-lol/poser.lol/actions/workflows/build.yml)
 
 Frontend for [poser.lol](https://poser.lol).
