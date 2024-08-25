@@ -13,4 +13,10 @@ Update the code in [`src`](src), and run the frontend locally:
 npm start
 ```
 
+Before creating a PR, format the code:
+
+```bash
+npm run format
+```
+
 Once the change is merged to `main`, the final assets will be automatically built and published.
