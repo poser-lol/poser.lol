@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel",
-    "build": "rm -rf docs && parcel build --dist-dir docs"
+    "build": "rm -rf docs && parcel build --dist-dir docs && echo poser.lol > docs/CNAME"
   },
   "keywords": [],
   "author": "",
