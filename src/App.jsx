@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient("https://pmjnfiqhiaxstnojglrq.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtam5maXFoaWF4c3Rub2pnbHJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjQ3MDI0ODQsImV4cCI6MjA0MDI3ODQ4NH0.QpboF3v-ZEUpnAE7GEvdt6UxXQBGrOaLe1AQQMDHe6g");
+const supabase = createClient(
+  "https://pmjnfiqhiaxstnojglrq.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtam5maXFoaWF4c3Rub2pnbHJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjQ3MDI0ODQsImV4cCI6MjA0MDI3ODQ4NH0.QpboF3v-ZEUpnAE7GEvdt6UxXQBGrOaLe1AQQMDHe6g",
+);
 
 export function App() {
   const [milliseconds, setMilliseconds] = useState(0);
