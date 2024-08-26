@@ -19,4 +19,10 @@ Before creating a PR, format the code:
 npm run format
 ```
 
+And check for any issues:
+
+```bash
+npm run check
+```
+
 Once the change is merged to `main`, the final assets will be automatically built and published.
