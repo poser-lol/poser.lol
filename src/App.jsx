@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 export function App() {
   const [milliseconds, setMilliseconds] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
-  const [intervalId, setIntervalId] = useState<number | undefined>(undefined);
+  const [intervalId, setIntervalId] = useState(undefined);
 
   useEffect(() => {
     if (isRunning) {
