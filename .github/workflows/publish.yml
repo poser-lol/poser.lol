@@ -43,6 +43,7 @@ jobs:
       - name: Merge PR
         if: steps.build.outputs.changed
         run: |
-          gh pr merge "publish-$GITHUB_SHA" --squash --admin
+          sleep 5 # Avoid errors such as "Pull request is in clean status"
+          gh pr merge "publish-$GITHUB_SHA" --squash --auto
         env:
           GH_TOKEN: ${{ github.token }}
