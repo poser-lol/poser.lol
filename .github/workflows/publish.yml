@@ -39,3 +39,10 @@ jobs:
           gh pr create --title "Publish commit \`$GITHUB_SHA\`" --body "Automated \`npm run build\` on commit $GITHUB_SHA" --base main --head "publish-$GITHUB_SHA"
         env:
           GH_TOKEN: ${{ github.token }}
+
+      - name: Merge PR
+        if: steps.build.outputs.changed
+        run: |
+          gh pr merge "publish-$GITHUB_SHA" --merge
+        env:
+          GH_TOKEN: ${{ github.token }}
