@@ -7,7 +7,13 @@ Frontend for [poser.lol](https://poser.lol).
 
 ## Getting started
 
-Update the code in [`src`](src), and run the frontend locally:
+First, install dependencies:
+
+```bash
+npm install
+```
+
+Then make some changes to the code in [`src`](src), and test the frontend locally:
 
 ```bash
 npm start
@@ -25,4 +31,6 @@ And check for any issues:
 npm run check
 ```
 
-Once the change is merged to `main`, the final assets will be automatically built and published.
+Then you can create PR to merge the changes.
+
+Any changes to the `main` branch will automatically be published to [poser.lol](https://poser.lol).
