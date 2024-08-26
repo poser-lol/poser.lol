@@ -43,6 +43,6 @@ jobs:
       - name: Merge PR
         if: steps.build.outputs.changed
         run: |
-          gh pr merge "publish-$GITHUB_SHA" --merge
+          gh pr merge "publish-$GITHUB_SHA" --merge --admin
         env:
           GH_TOKEN: ${{ github.token }}
