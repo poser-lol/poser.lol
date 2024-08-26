@@ -9,7 +9,7 @@
     "start": "parcel",
     "format": "prettier --write src",
     "check": "prettier --check src",
-    "build": "rm -rf docs && parcel build --dist-dir docs && echo poser.lol > docs/CNAME"
+    "build": "npm run check && rm -rf docs && parcel build --dist-dir docs && echo poser.lol > docs/CNAME"
   },
   "keywords": [],
   "author": "",
