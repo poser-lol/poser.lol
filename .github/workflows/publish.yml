@@ -14,18 +14,27 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - run: |
+
+      - name: Build
+        id: build
+        run: |
           npm ci
           npm run build
-      - run: |
-          git checkout -b "publish-$GITHUB_SHA"
-      - run: |
+          git diff --exit-code || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Push changes to temporary branch
+        if: steps.build.outputs.changed
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "publish-$GITHUB_SHA"
           git add .
-          git commit -m "Publish commit $GITHUB_SHA" || exit 0
+          git commit -m "Publish commit $GITHUB_SHA"
           git push --set-upstream origin "publish-$GITHUB_SHA"
-      - run: |
+
+      - name: Create PR
+        if: steps.build.outputs.changed
+        run: |
           gh pr create --title "Publish commit $GITHUB_SHA" --body "Automated `npm run build` on commit $GITHUB_SHA" --base main --head "publish-$GITHUB_SHA"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
