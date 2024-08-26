@@ -20,5 +20,5 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
-          git commit -m "Automated build" || true
+          git commit -m "Automated build for $GITHUB_SHA" || true
           git push
