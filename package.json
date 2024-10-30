@@ -8,13 +8,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel",
     "format": "prettier --write .",
-    "check": "prettier --check .",
+    "check": "tsc --noEmit && prettier --check .",
     "build": "npm run check && rm -rf docs && parcel build --dist-dir docs && echo poser.lol > docs/CNAME"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.0",
     "buffer": "^6.0.3",
     "parcel": "^2.12.0",
