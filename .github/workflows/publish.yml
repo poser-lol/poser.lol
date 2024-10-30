@@ -36,6 +36,6 @@ jobs:
       - name: Create PR
         if: steps.build.outputs.changed
         run: |
-          gh pr create --title "Publish commit \`$GITHUB_SHA\`" --body "Automated \`npm run build\` on commit $GITHUB_SHA" --base main --head "publish-$GITHUB_SHA"
+          printf '> [!NOTE]\n>\n> Close and reopen this PR to ensure the checks run.\n\nThis PR is the result of an automated `npm run build` on the `main` branch.' | gh pr create --title "Publish commit \`$GITHUB_SHA\`" --body-file - --base main --head "publish-$GITHUB_SHA"
         env:
           GH_TOKEN: ${{ github.token }}
