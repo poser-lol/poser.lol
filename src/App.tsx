@@ -7,7 +7,7 @@ export function App() {
 
   return (
     <div>
-      <p>Count: {count}</p>
+      <p>도경 count: {count}</p>
       <button onClick={increaseCount}>Increase</button>
     </div>
   );
