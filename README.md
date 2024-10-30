@@ -33,4 +33,4 @@ npm run check
 
 Then you can [create a PR](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to merge the changes.
 
-Once merged, an automated task will create a PR with the built artifacts. Merge that PR for the changes to be published live.
+Once merged, a PR will be automatically created with the built artifacts. Merge that PR for the changes to be published live.
