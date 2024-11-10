@@ -18,6 +18,8 @@ import {
 } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 
 export function Home() {
   return (
@@ -29,7 +31,7 @@ export function Home() {
             sx={{ flexGrow: 1, color: "inherit" }}
             separator={<NavigateNextIcon fontSize="small" />}
           >
-            <Typography variant="h6" color="inherit" fontWeight="bold">
+            <Typography variant="h6" fontWeight="bold">
               스케이트 스팟
             </Typography>
           </Breadcrumbs>
@@ -45,20 +47,29 @@ export function Home() {
         </Toolbar>
       </AppBar>
       <Toolbar />
-      <Box sx={{ mt: 0, mx: 0 }}>
+      <Box>
         <Box
           sx={{
             height: "40vh", // Responsive height
+            width: "100%",
             backgroundColor: "grey.300",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            mb: 0,
           }}
         >
-          <Typography variant="h6">Map Placeholder</Typography>
+          <MapContainer
+            center={[51.505, -0.09]}
+            zoom={13}
+            style={{ height: "100%", width: "100%" }}
+          >
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            />
+          </MapContainer>
         </Box>
-        <List sx={{ m: 0, p: 0 }}>
+        <List sx={{ pt: 0 }}>
           {spots.map((spot, index) => (
             <React.Fragment key={spot.id}>
               <ListItem disablePadding>
@@ -69,7 +80,7 @@ export function Home() {
                   <ListItemText primary={spot.name} secondary={spot.summary} />
                 </ListItemButton>
               </ListItem>
-              {index < spots.length - 1 && <Divider />}
+              <Divider />
             </React.Fragment>
           ))}
         </List>

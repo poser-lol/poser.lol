@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { spots } from "./data/spots";
 import {
-  Container,
+  Box,
   Typography,
   AppBar,
   Toolbar,
@@ -30,11 +30,9 @@ export function Spot() {
             separator={<NavigateNextIcon fontSize="small" />}
           >
             <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
-              <Typography variant="h6" color="inherit">
-                스케이트 스팟
-              </Typography>
+              <Typography variant="h6">스케이트 스팟</Typography>
             </Link>
-            <Typography variant="h6" color="inherit" fontWeight="bold">
+            <Typography variant="h6" fontWeight="bold">
               {spot.name}
             </Typography>
           </Breadcrumbs>
@@ -50,11 +48,14 @@ export function Spot() {
         </Toolbar>
       </AppBar>
       <Toolbar />
-      <Container sx={{ mt: 2 }}>
+      <Box sx={{ mt: 2, px: 2 }}>
+        <Typography variant="h6" component="h1" gutterBottom>
+          {spot.name}
+        </Typography>
         <Typography variant="body1" component="p">
           {spot.summary}
         </Typography>
-      </Container>
+      </Box>
     </>
   );
 }
