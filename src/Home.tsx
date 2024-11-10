@@ -27,6 +27,8 @@ import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
+import placeholderImage from "./data/media/placeholder.jpg";
+
 // Configure the default icon
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: markerIcon2x,
@@ -73,9 +75,9 @@ export function Home() {
         >
           <MapContainer
             center={[37.5665, 126.978]}
-            zoomControl={false}
             zoom={11}
             style={{ height: "100%", width: "100%" }}
+            zoomControl={false}
           >
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -96,7 +98,7 @@ export function Home() {
               <ListItem disablePadding>
                 <ListItemButton component={Link} to={`/spot/${spot.id}`}>
                   <ListItemAvatar>
-                    <Avatar alt={spot.name} />
+                    <Avatar alt={spot.name} src={placeholderImage} />
                   </ListItemAvatar>
                   <ListItemText primary={spot.name} secondary={spot.summary} />
                 </ListItemButton>
