@@ -14,17 +14,25 @@ import {
   AppBar,
   Toolbar,
   IconButton,
+  Breadcrumbs,
 } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 export function Home() {
   return (
     <>
       <AppBar position="fixed">
         <Toolbar sx={{ px: 2 }}>
-          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
-            스케이트 스팟
-          </Typography>
+          <Breadcrumbs
+            aria-label="breadcrumb"
+            sx={{ flexGrow: 1, color: "inherit" }}
+            separator={<NavigateNextIcon fontSize="small" />}
+          >
+            <Typography variant="h6" color="inherit" fontWeight="bold">
+              스케이트 스팟
+            </Typography>
+          </Breadcrumbs>
           <IconButton
             edge="end"
             color="inherit"
