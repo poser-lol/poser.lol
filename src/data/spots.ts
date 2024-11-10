@@ -7,12 +7,12 @@ export interface Spot {
 export const spots: Spot[] = [
   {
     id: "cult",
-    name: "Item 1",
+    name: "컬트",
     summary: "This is the summary for Item 1",
   },
   {
     id: "ttukseom",
-    name: "Item 2",
+    name: "뚝섬",
     summary: "This is the summary for Item 2",
   },
 ];

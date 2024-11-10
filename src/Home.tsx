@@ -5,7 +5,7 @@ import { spots } from "./data/spots";
 export function Home() {
   return (
     <div>
-      <h1>List of Items</h1>
+      <h1>Spots</h1>
       <ul>
         {spots.map((spot) => (
           <li key={spot.id}>
