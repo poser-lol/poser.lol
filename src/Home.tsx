@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { spots } from "./data/spots";
 import {
-  Container,
   Typography,
   List,
   ListItem,
@@ -12,41 +11,46 @@ import {
   Avatar,
   Divider,
   Box,
-  Breadcrumbs,
   AppBar,
   Toolbar,
+  IconButton,
 } from "@mui/material";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 export function Home() {
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar sx={{ px: 2 }}>
-          <Typography variant="h6" noWrap>
-            Spots
+          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
+            스케이트 스팟
           </Typography>
+          <IconButton
+            edge="end"
+            color="inherit"
+            href="https://www.instagram.com/your_instagram_handle"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <InstagramIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
-      <Container sx={{ mt: 2 }}>
-        <Breadcrumbs aria-label="breadcrumb" sx={{ mb: 2 }}>
-          <Typography color="textPrimary">Spots</Typography>
-        </Breadcrumbs>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Spots
-        </Typography>
+      <Toolbar />
+      <Box sx={{ mt: 0, mx: 0 }}>
         <Box
           sx={{
-            height: 300,
+            height: '40vh', // Responsive height
             backgroundColor: "grey.300",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            mb: 2,
+            mb: 0,
           }}
         >
           <Typography variant="h6">Map Placeholder</Typography>
         </Box>
-        <List>
+        <List sx={{ m: 0, p: 0 }}>
           {spots.map((spot, index) => (
             <React.Fragment key={spot.id}>
               <ListItem disablePadding>
@@ -61,7 +65,7 @@ export function Home() {
             </React.Fragment>
           ))}
         </List>
-      </Container>
+      </Box>
     </>
   );
 }
