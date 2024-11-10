@@ -73,6 +73,7 @@ export function Home() {
         >
           <MapContainer
             center={[37.5665, 126.978]}
+            zoomControl={false}
             zoom={11}
             style={{ height: "100%", width: "100%" }}
           >
