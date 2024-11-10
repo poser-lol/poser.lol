@@ -1,7 +1,15 @@
 import React from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { spots } from "./data/spots";
-import { Container, Typography, AppBar, Toolbar, IconButton, Breadcrumbs, Box } from "@mui/material";
+import {
+  Container,
+  Typography,
+  AppBar,
+  Toolbar,
+  IconButton,
+  Breadcrumbs,
+  Box,
+} from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export function Spot() {
@@ -27,7 +35,7 @@ export function Spot() {
       </AppBar>
       <Container sx={{ mt: 2 }}>
         <Breadcrumbs aria-label="breadcrumb" sx={{ mb: 2 }}>
-          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
             Spots
           </Link>
           <Typography color="textPrimary">{spot.name}</Typography>
