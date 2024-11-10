@@ -1,7 +1,13 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { spots } from "./data/spots";
-import { Container, Typography, AppBar, Toolbar, IconButton } from "@mui/material";
+import {
+  Container,
+  Typography,
+  AppBar,
+  Toolbar,
+  IconButton,
+} from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
@@ -18,7 +24,12 @@ export function Spot() {
     <>
       <AppBar position="fixed">
         <Toolbar sx={{ px: 2 }}>
-          <IconButton edge="start" color="inherit" onClick={() => navigate(-1)} sx={{ mr: 2 }}>
+          <IconButton
+            edge="start"
+            color="inherit"
+            onClick={() => navigate(-1)}
+            sx={{ mr: 2 }}
+          >
             <ArrowBackIcon />
           </IconButton>
           <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>

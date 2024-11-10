@@ -40,7 +40,7 @@ export function Home() {
       <Box sx={{ mt: 0, mx: 0 }}>
         <Box
           sx={{
-            height: '40vh', // Responsive height
+            height: "40vh", // Responsive height
             backgroundColor: "grey.300",
             display: "flex",
             alignItems: "center",
