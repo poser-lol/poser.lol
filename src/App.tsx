@@ -8,8 +8,8 @@ import {
 } from "react-router-dom";
 
 const items = [
-  { id: 1, name: "Item 1", summary: "This is the summary for Item 1" },
-  { id: 2, name: "Item 2", summary: "This is the summary for Item 2" },
+  { id: "cult", name: "Item 1", summary: "This is the summary for Item 1" },
+  { id: "shit", name: "Item 2", summary: "This is the summary for Item 2" },
   // Add more items as needed
 ];
 
@@ -20,7 +20,7 @@ function Home() {
       <ul>
         {items.map((item) => (
           <li key={item.id}>
-            <Link to={`/summary/${item.id}`}>{item.name}</Link>
+            <Link to={`/spot/${item.id}`}>{item.name}</Link>
           </li>
         ))}
       </ul>
@@ -34,7 +34,7 @@ function Summary() {
     throw new Error("Invalid item id");
   }
 
-  const item = items.find((i) => i.id === parseInt(id));
+  const item = items.find((i) => i.id === id);
   return (
     <div>
       <h1>{item?.name}</h1>
@@ -49,7 +49,7 @@ export function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/summary/:id" element={<Summary />} />
+        <Route path="/spot/:id" element={<Summary />} />
       </Routes>
     </Router>
   );
