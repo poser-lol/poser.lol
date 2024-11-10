@@ -20,6 +20,19 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+
+// Import the default Leaflet marker icons
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
+
+// Configure the default icon
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: markerIcon2x,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+});
 
 export function Home() {
   return (
@@ -67,6 +80,13 @@ export function Home() {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
+            {spots.map((spot) => (
+              <Marker key={spot.id} position={[spot.latitude, spot.longitude]}>
+                <Popup>
+                  <Typography variant="body2">{spot.name}</Typography>
+                </Popup>
+              </Marker>
+            ))}
           </MapContainer>
         </Box>
         <List sx={{ pt: 0 }}>
