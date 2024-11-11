@@ -40,11 +40,12 @@ export default function MapBox() {
         window.kakao.maps.load(() => {
           const mapContainer = document.getElementById("map");
           const mapOption = {
+            center: new window.kakao.maps.LatLng(center.lat, center.lng),
             level: 8,
           };
           const mapInstance = new window.kakao.maps.Map(
             mapContainer,
-            mapOption,
+            mapOption
           );
           setMap(mapInstance);
 
@@ -57,7 +58,7 @@ export default function MapBox() {
           navigator.geolocation.watchPosition((pos) => {
             const newPos = new window.kakao.maps.LatLng(
               pos.coords.latitude,
-              pos.coords.longitude,
+              pos.coords.longitude
             );
             userPositionMarker.setPosition(newPos);
             mapInstance.setCenter(newPos);
@@ -66,7 +67,7 @@ export default function MapBox() {
           spots?.forEach((info) => {
             const position = new window.kakao.maps.LatLng(
               info.latitude,
-              info.longitude,
+              info.longitude
             );
 
             const content = `
