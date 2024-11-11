@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { spots } from "./data/spots";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import NavBar from "./components/NavBar";
 import * as S from "../styles/spot";
 
 export function Spot() {
@@ -16,7 +17,7 @@ export function Spot() {
   return (
     <S.MainContainer>
       <S.OuterSection>
-        <S.NavContainer></S.NavContainer>
+        <NavBar />
         <S.ContentContainer>
           <S.ImageContainer></S.ImageContainer>
         </S.ContentContainer>
