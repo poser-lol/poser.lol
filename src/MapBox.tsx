@@ -24,14 +24,14 @@ export default function MapBox() {
           };
           const mapInstance = new window.kakao.maps.Map(
             mapContainer,
-            mapOption
+            mapOption,
           );
           setMap(mapInstance);
 
           spots?.forEach((info) => {
             const position = new window.kakao.maps.LatLng(
               info.latitude,
-              info.longitude
+              info.longitude,
             );
 
             const content = `
