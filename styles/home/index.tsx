@@ -33,8 +33,6 @@ export const MapContainer = styled.div`
 
 export const ListContainer = styled.div`
   width: 100%;
-  margin-top: 30px;
-  background-color: aqua;
 `;
 
 export const ButtonWrapper = styled.div`

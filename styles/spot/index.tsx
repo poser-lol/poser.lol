@@ -36,7 +36,7 @@ export const SpotName = styled.div`
   margin-top: 20px;
   margin-left: 30px;
   color: white;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
 `;
 
