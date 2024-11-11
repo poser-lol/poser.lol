@@ -27,7 +27,7 @@ export default function MapBox() {
         spots?.forEach((info) => {
           const position = new window.kakao.maps.LatLng(
             info.latitude,
-            info.longitude
+            info.longitude,
           );
 
           const content = `
