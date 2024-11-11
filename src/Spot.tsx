@@ -1,8 +1,6 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { spots } from "./data/spots";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavBar from "./components/NavBar";
 import * as S from "../styles/spot";
 
@@ -19,7 +17,8 @@ export function Spot() {
       <S.OuterSection>
         <NavBar />
         <S.ContentContainer>
-          <S.ImageContainer></S.ImageContainer>
+          <S.ImageContainer> </S.ImageContainer>
+          <S.SpotName>{spot.name}</S.SpotName>
         </S.ContentContainer>
       </S.OuterSection>
     </S.MainContainer>

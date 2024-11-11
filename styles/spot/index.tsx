@@ -30,10 +30,21 @@ export const ContentContainer = styled.div`
   }
 `;
 
+export const SpotName = styled.div`
+  width: 100%;
+  height: 60px;
+  margin-top: 20px;
+  margin-left: 30px;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+`;
+
 export const ImageContainer = styled.div`
   width: 100%;
-  height: 30%;
-  background-color: black;
+  height: 40%;
+  background-color: white;
+  color: black;
 `;
 
 export const ButtonWrapper = styled.div`

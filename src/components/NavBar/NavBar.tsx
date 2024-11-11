@@ -2,17 +2,17 @@ import React from "react";
 import * as S from "./NavBar.styled";
 import { IconButton } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import { useLocation } from "react-router-dom"; // Import useLocation
-
+import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 export default function SpotList() {
-  const location = useLocation(); // Get current location (URL)
-
-  // Check if the current path is "/spot/:id"
-  const isSpotPage = location.pathname.startsWith("/spot");
+  //   const location = useLocation();
+  //   const isSpotPage = location.pathname.startsWith("/spot");
 
   return (
     <S.NavContainer>
-      <S.NavLeft>{isSpotPage ? "←" : "스케이트 스팟"}</S.NavLeft>
+      <Link to={`/`}>
+        <S.NavLeft>스케이트 스팟</S.NavLeft>
+      </Link>
       <S.NavRight>
         <IconButton
           edge="end"
