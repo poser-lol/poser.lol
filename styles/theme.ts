@@ -27,7 +27,6 @@ export const theme: DefaultTheme = {
 
   display: flex;
   flex-direction: column;
-  align-items: center;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -49,15 +48,21 @@ export const theme: DefaultTheme = {
   width: 100%;
   height: 7%;
 
-  position: fixed;
+  background-color : #212529;
   display : flex;
   justify-content: space-between;
   align-items : center;
-  z-index: 1;
+  z-index: 2;
   `,
 
   navLeft: `
   padding-left: 20px;
+  color: white;
+  font-weight: bold;
+  `,
+
+  navRight: `
+  padding-right: 20px;
   color: white;
   font-weight: bold;
   `,
@@ -87,12 +92,9 @@ export const theme: DefaultTheme = {
   `,
 
   contentContainer: `
-  width: 86%;
-  height: 100%;
+  width: 100%;
+  height: 97%;
 
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
   `,
 };

@@ -22,12 +22,13 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import * as S from "../styles/home";
+import MapBox from "./MapBox";
 
 // Import the default Leaflet marker icons
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
-
+import { Map } from "react-kakao-maps-sdk";
 import placeholderImage from "./data/media/placeholder.jpg";
 
 // Configure the default icon
@@ -43,27 +44,24 @@ export function Home() {
       <S.OuterSection>
         <S.NavContainer>
           <S.NavLeft>스케이트 스팟</S.NavLeft>
+          <S.NavRight>
+            {" "}
+            <IconButton
+              edge="end"
+              color="inherit"
+              href="https://www.instagram.com/your_instagram_handle"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon />
+            </IconButton>
+          </S.NavRight>
         </S.NavContainer>
         <S.ContentContainer>
-          <S.MapContainer></S.MapContainer>
-          <List sx={{ pt: 0 }}>
-            {spots.map((spot, index) => (
-              <React.Fragment key={spot.id}>
-                <ListItem disablePadding>
-                  <ListItemButton component={Link} to={`/spot/${spot.id}`}>
-                    <ListItemAvatar>
-                      <Avatar alt={spot.name} src={placeholderImage} />
-                    </ListItemAvatar>
-                    <ListItemText
-                      primary={spot.name}
-                      secondary={spot.summary}
-                    />
-                  </ListItemButton>
-                </ListItem>
-                <Divider />
-              </React.Fragment>
-            ))}
-          </List>
+          <S.MapContainer>
+            <MapBox />
+          </S.MapContainer>
+          <S.ListContainer></S.ListContainer>
         </S.ContentContainer>
       </S.OuterSection>
     </S.MainContainer>

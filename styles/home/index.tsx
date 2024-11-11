@@ -16,20 +16,25 @@ export const NavLeft = styled.div`
   ${({ theme }) => theme.navLeft};
 `;
 
+export const NavRight = styled.div`
+  ${({ theme }) => theme.navRight};
+`;
+
 export const ContentContainer = styled.div`
   ${({ theme }) => theme.contentContainer};
-
   justify-content: center;
-
-  @media (min-width: 542px) {
-    width: 100%;
-  }
 `;
 
 export const MapContainer = styled.div`
   width: 100%;
-  height: 30%;
-  background-color: black;
+  height: 40%;
+  background-color: white;
+`;
+
+export const ListContainer = styled.div`
+  width: 100%;
+  margin-top: 30px;
+  background-color: aqua;
 `;
 
 export const ButtonWrapper = styled.div`
