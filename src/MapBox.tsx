@@ -8,10 +8,31 @@ declare global {
   }
 }
 
+type position = {
+  lat: number;
+  lng: number;
+};
+
 export default function MapBox() {
   const [map, setMap] = useState(null);
-  const DEFAULT_LAT = 37.497625203;
-  const DEFAULT_LNG = 127.03088379;
+  const [center, setCenter] = useState<position>({
+    lat: 33.450701,
+    lng: 126.570667,
+  });
+  const [position, setPosition] = useState<position>({
+    lat: 33.450701,
+    lng: 126.570667,
+  });
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((pos) => {
+      setCenter({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+    });
+
+    navigator.geolocation.watchPosition((pos) => {
+      setPosition({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+    });
+  }, []);
 
   useEffect(() => {
     const loadKaKaoMap = () => {
@@ -19,8 +40,7 @@ export default function MapBox() {
         window.kakao.maps.load(() => {
           const mapContainer = document.getElementById("map");
           const mapOption = {
-            center: new window.kakao.maps.LatLng(DEFAULT_LAT, DEFAULT_LNG),
-            level: 10,
+            level: 8,
           };
           const mapInstance = new window.kakao.maps.Map(
             mapContainer,
@@ -28,20 +48,32 @@ export default function MapBox() {
           );
           setMap(mapInstance);
 
-          // Add markers for each spot
+          const userPositionMarker = new window.kakao.maps.Marker({
+            position: new window.kakao.maps.LatLng(position.lat, position.lng),
+            map: mapInstance,
+            title: "Your Current Location",
+          });
+
+          navigator.geolocation.watchPosition((pos) => {
+            const newPos = new window.kakao.maps.LatLng(
+              pos.coords.latitude,
+              pos.coords.longitude,
+            );
+            userPositionMarker.setPosition(newPos);
+            mapInstance.setCenter(newPos);
+          });
+
           spots?.forEach((info) => {
             const position = new window.kakao.maps.LatLng(
               info.latitude,
               info.longitude,
             );
 
-            // Content for the custom marker
             const content = `
               <div style="width: 70px; height: 70px; text-align: center;">
                 <div 
                   style="width: 100%; height: 100%; background-image: url(${wheel}); background-size: contain; background-repeat: no-repeat; background-position: center;">
                 </div>
-                
               </div>
             `;
 
@@ -65,7 +97,7 @@ export default function MapBox() {
     return () => {
       document.head.removeChild(script);
     };
-  }, [map]);
+  }, [center]);
 
   return <div id="map" style={{ width: "100%", height: "100%" }}></div>;
 }
