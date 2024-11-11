@@ -11,7 +11,7 @@ export default function SpotList() {
   return (
     <S.NavContainer>
       <Link to={`/`}>
-        <S.NavLeft>스케이트 스팟</S.NavLeft>
+        <S.NavLeft>Spots</S.NavLeft>
       </Link>
       <S.NavRight>
         <IconButton
